@@ -419,7 +419,7 @@ void FlyByWireModelClass::step()
     rtb_in_rotation = 0;
   } else if (FlyByWire_DWork.is_c6_FlyByWire == FlyByWire_IN_OFF) {
     if ((FlyByWire_DWork.Delay_DSTATE_i < 1.0) && (FlyByWire_U.in.data.V_tas_kn > 70.0) &&
-        ((FlyByWire_U.in.data.thrust_lever_1_pos >= 95.0) || (FlyByWire_U.in.data.thrust_lever_2_pos >= 95.0))) {
+        ((FlyByWire_U.in.data.thrust_lever_1_pos >= 35.0) || (FlyByWire_U.in.data.thrust_lever_2_pos >= 35.0))) {
       FlyByWire_DWork.is_c6_FlyByWire = FlyByWire_IN_ON;
       rtb_in_rotation = 1;
     } else {
@@ -427,8 +427,8 @@ void FlyByWireModelClass::step()
     }
   } else {
     if ((FlyByWire_DWork.Delay_DSTATE_i == 1.0) || (FlyByWire_U.in.data.H_radio_ft > 400.0) ||
-        ((FlyByWire_U.in.data.V_tas_kn < 70.0) && ((FlyByWire_U.in.data.thrust_lever_1_pos < 95.0) ||
-          (FlyByWire_U.in.data.thrust_lever_2_pos < 95.0)))) {
+        ((FlyByWire_U.in.data.V_tas_kn < 70.0) && ((FlyByWire_U.in.data.thrust_lever_1_pos < 35.0) ||
+          (FlyByWire_U.in.data.thrust_lever_2_pos < 35.0)))) {
       FlyByWire_DWork.is_c6_FlyByWire = FlyByWire_IN_OFF;
       rtb_in_rotation = 0;
     } else {
